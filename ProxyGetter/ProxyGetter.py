@@ -9,6 +9,7 @@ class ProxyGetter:
 
     @staticmethod
     def freeProxy01(self):
+        "http://www.kxdaili.com/dailiip/1/5.html"
         pass
     # 快代理
     @staticmethod
@@ -31,6 +32,7 @@ class ProxyGetter:
     # 西刺代理
     @staticmethod
     def freeProxy03():
+        "https://www.xicidaili.com/nn/5"
         pass
     @staticmethod
     def freeProxy04():
