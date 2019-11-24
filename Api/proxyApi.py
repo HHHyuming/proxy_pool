@@ -29,6 +29,7 @@ proxy_manager = ProxyManager.ProxyManager()
 @app.route('/get/')
 def get_proxy():
     # TODO
+
     proxy = proxy_manager.get_proxy()
     return proxy
 
@@ -60,10 +61,18 @@ def get_https_proxy():
     return proxy_manager.get_https_proxy()
 
 
+# if __name__ == '__main__':
+#     from Config.settings import SERVER_API
+#     if platform.system() == 'Windows':
+#         app.run(
+#             host=SERVER_API['HOST'],
+#             port=SERVER_API['PORT'],
+#             debug=SERVER_API['DEBUG'])
+
 if __name__ == '__main__':
-    from Config.settings import SERVER_API
-    if platform.system() == 'Windows':
-        app.run(
-            host=SERVER_API['HOST'],
-            port=SERVER_API['PORT'],
-            debug=SERVER_API['DEBUG'])
+    print(proxy_manager.get_proxy())
+    print(proxy_manager.get_all_proxy())
+    print(proxy_manager.get_http_proxy())
+    print(proxy_manager.get_proxy_number())
+    print(proxy_manager.get_https_proxy())
+    # print(proxy_list)

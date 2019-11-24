@@ -1,9 +1,10 @@
 from datetime import datetime
-
+import sys, os
 from Config.ConfigGetter import ConfigGetter
 from ProxyHelper import Proxy
 from Utils.utilClass import Singleton
 
+sys.path.append(os.path.dirname(__file__))
 
 class DbClient(metaclass=Singleton):
     def __init__(self):

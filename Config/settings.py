@@ -38,3 +38,7 @@ PROXY_GETTER = {
     "freeProxy09",
 }
 
+PROXY_DB_TABLES = {
+    'raw': 'proxy',
+    'useful': 'useful_proxy'
+}

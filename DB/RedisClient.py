@@ -28,7 +28,7 @@ class RedisClient(object):
         return new_dic
 
     def getNumber(self):
-        self.__conn.hlen(self.name)
+        return self.__conn.hlen(self.name)
 
     def exists(self, key, **kwargs):
         return self.__conn.exists(self.name, key)
