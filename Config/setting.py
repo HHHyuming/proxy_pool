@@ -35,7 +35,7 @@ PY3 = sys.version_info >= (3,)
 
 DB_TYPE = 'redis'.upper()
 DB_HOST = '127.0.0.1'
-DB_PORT = '6379'
+DB_PORT = 6379
 DB_PASSWORD = getenv('db_password', '')
 
 
