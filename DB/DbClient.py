@@ -109,6 +109,8 @@ class DbClient(object):
     def getNumber(self):
         return self.client.getNumber()
 
+
+
 if __name__ == '__main__':
     db = DbClient()
-    print(db.client.__dict__)
+    print(db.client.put('key','set','value'))

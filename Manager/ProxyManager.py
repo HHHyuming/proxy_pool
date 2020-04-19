@@ -57,7 +57,7 @@ class ProxyManager(object):
                                       '{proxy} exist'.format(func=proxyGetter, proxy=proxy.ljust(20)))
                         continue
                     else:
-                        self.log.info('ProxyFetch - {func}: '
+                        self.log.info('ProxyFetch - {func}: ' 
                                       '{proxy} success'.format(func=proxyGetter, proxy=proxy.ljust(20)))
                         self.db.put(Proxy(proxy, source=proxyGetter))
                         proxy_set.add(proxy)

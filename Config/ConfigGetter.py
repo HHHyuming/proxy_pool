@@ -31,7 +31,7 @@ class ConfigGetter(object):
 
     @LazyProperty
     def db_host(self):
-        return DATABASES.get("default", {}).get("PASSWORD", "")
+        return DATABASES.get("default", {}).get("HOST", "")
 
     @LazyProperty
     def proxy_getter_functions(self):
@@ -47,7 +47,7 @@ class ConfigGetter(object):
 
     @LazyProperty
     def db_password(self):
-        return SERVER_API.get("HOST", "127.0.0.1")
+        return DATABASES.get("default", {}).get("PASSWORD", 8888)
 
     @LazyProperty
     def host_port(self):

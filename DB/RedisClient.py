@@ -12,6 +12,7 @@
 """
 __author__ = 'JHao'
 
+from Config.ConfigGetter import config
 from Config.setting import PY3
 
 from redis.connection import BlockingConnectionPool
@@ -39,7 +40,7 @@ class RedisClient(object):
         """
         self.name = name
         self.__conn = Redis(connection_pool=BlockingConnectionPool(**kwargs))
-
+        self.conn = Redis(connection_pool=BlockingConnectionPool(**kwargs))
     def get(self, proxy_str):
         """
         从hash中获取对应的proxy, 使用前需要调用changeTable()
@@ -131,3 +132,9 @@ class RedisClient(object):
         :return:
         """
         self.name = name
+
+if __name__ == '__main__':
+    params = dict(host=config.db_host, port=config.db_port, password=config.db_password)
+    print(params)
+    obj = RedisClient(name='proxy',**params)
+    print(obj.conn.keys())
