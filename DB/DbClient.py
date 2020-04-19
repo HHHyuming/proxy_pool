@@ -65,20 +65,19 @@ class DbClient(object):
         init DB Client
         :return:
         """
+        params = dict(host=config.db_host, port=config.db_port, password=config.db_password)
         __type = None
         if "SSDB" == config.db_type:
             __type = "SsdbClient"
         elif "REDIS" == config.db_type:
             __type = "RedisClient"
+            params['db'] = config.db_sequence
         elif "MONGODB" == config.db_type:
             __type = "MongodbClient"
         else:
             pass
         assert __type, 'type error, Not support DB type: {}'.format(config.db_type)
-        self.client = getattr(__import__(__type), __type)(name=config.db_name,
-                                                          host=config.db_host,
-                                                          port=config.db_port,
-                                                          password=config.db_password)
+        self.client = getattr(__import__(__type), __type)(name=config.db_name, **params)
 
     def get(self, key, **kwargs):
         return self.client.get(key, **kwargs)
@@ -109,3 +108,7 @@ class DbClient(object):
 
     def getNumber(self):
         return self.client.getNumber()
+
+if __name__ == '__main__':
+    db = DbClient()
+    print(db.client.__dict__)

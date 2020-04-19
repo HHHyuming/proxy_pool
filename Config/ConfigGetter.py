@@ -18,6 +18,10 @@ class ConfigGetter(object):
         pass
 
     @LazyProperty
+    def db_sequence(self):
+        return DATABASES.get("default", {}).get("SEQUENCE", 0)
+
+    @LazyProperty
     def db_type(self):
         return DATABASES.get("default", {}).get("TYPE", "SSDB")
 
@@ -48,7 +52,6 @@ class ConfigGetter(object):
     @LazyProperty
     def host_port(self):
         return SERVER_API.get("PORT", 5010)
-
 
 config = ConfigGetter()
 

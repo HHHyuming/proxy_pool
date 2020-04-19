@@ -46,6 +46,7 @@ DATABASES = {
         "HOST": DB_HOST,
         "PORT": DB_PORT,
         "NAME": "proxy",
+        "SEQUENCE": 5,
         # "PASSWORD": DB_PASSWORD
     }
 }
